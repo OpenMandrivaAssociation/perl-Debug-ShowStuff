@@ -1,19 +1,19 @@
 %define upstream_name    Debug-ShowStuff
 %define upstream_version 1.13
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	4
 
-Summary:    A collection of handy debugging routines for displaying
-License:    GPL+ or Artistic
-Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/Debug/%{upstream_name}-%{upstream_version}.tar.gz
+Summary:	A collection of handy debugging routines for displaying
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Debug/%{upstream_name}-%{upstream_version}.tar.gz
 
-BuildRequires: perl(Tie::IxHash)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+BuildRequires:	perl-devel
+BuildRequires:	perl(Tie::IxHash)
+BuildArch:	noarch
 
 %description
 'Debug::ShowStuff' grew dynamically from my needs in debugging code. I
@@ -37,24 +37,35 @@ Your preferences may be different. I encourage you to modify
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
-
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
-
 %files
-%defattr(-,root,root)
 %doc README
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/*
 
+%changelog
+* Sat Apr 23 2011 Funda Wang <fwang@mandriva.org> 1.130.0-3mdv2011.0
++ Revision: 657775
+- rebuild for updated spec-helper
+- rebuild for updated spec-helper
+
+* Mon Dec 06 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.130.0-1mdv2011.0
++ Revision: 612076
+- update to new version 1.13
+
+* Sun Nov 14 2010 Guillaume Rousse <guillomovitch@mandriva.org> 1.110.0-1mdv2011.0
++ Revision: 597580
+- update to new version 1.11
+
+* Fri Nov 12 2010 Jérôme Quelin <jquelin@mandriva.org> 1.100.0-1mdv2011.0
++ Revision: 596656
+- import perl-Debug-ShowStuff
 
