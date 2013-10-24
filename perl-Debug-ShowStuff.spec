@@ -1,15 +1,15 @@
 %define upstream_name    Debug-ShowStuff
-%define upstream_version 1.13
+%define upstream_version 1.16
 
 Name:		perl-%{upstream_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Release:	1
 
 Summary:	A collection of handy debugging routines for displaying
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Debug/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/Debug/Debug-ShowStuff-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Tie::IxHash)
@@ -68,4 +68,5 @@ perl Makefile.PL INSTALLDIRS=vendor
 * Fri Nov 12 2010 Jérôme Quelin <jquelin@mandriva.org> 1.100.0-1mdv2011.0
 + Revision: 596656
 - import perl-Debug-ShowStuff
+
 
