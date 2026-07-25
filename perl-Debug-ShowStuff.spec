@@ -2,14 +2,14 @@
 %define upstream_version 1.16
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	3
+Version:	%{upstream_version}
+Release:	4
 
 Summary:	A collection of handy debugging routines for displaying
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Debug/Debug-ShowStuff-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/Debug-ShowStuff
+Source0:	https://cpan.metacpan.org/authors/id/M/MI/MIKO/Debug-ShowStuff-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
